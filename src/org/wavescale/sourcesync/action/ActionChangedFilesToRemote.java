@@ -10,7 +10,10 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vcs.changes.Change;
 import com.intellij.openapi.vcs.changes.ChangeListManager;
 import com.intellij.openapi.vcs.changes.LocalChangeList;
+import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.util.io.FileUtil;
+import com.intellij.openapi.vfs.newvfs.impl.VirtualFileImpl;
 import org.jetbrains.annotations.NotNull;
 import org.wavescale.sourcesync.api.ConnectionConfiguration;
 import org.wavescale.sourcesync.api.FileSynchronizer;
@@ -20,6 +23,7 @@ import org.wavescale.sourcesync.factory.ConfigConnectionFactory;
 import org.wavescale.sourcesync.factory.ConnectionConfig;
 import org.wavescale.sourcesync.logger.BalloonLogger;
 import org.wavescale.sourcesync.logger.EventDataLogger;
+
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -41,6 +45,19 @@ import java.util.concurrent.Semaphore;
  */
 public class ActionChangedFilesToRemote extends AnAction {
     public void actionPerformed(final AnActionEvent e) {
+        // LocalFileSystem.getInstance().findFileByPath(path);
+
+        //final File originalFile = cvsFileSystem.getLocalFileSystem().getFile(fileObject);
+        //final File targetFile = new File(originalFile.getParentFile(), newFileName);
+        //FileUtil.createIfNotExists()
+
+        //LocalFileSystem fs = LocalFileSystem.getInstance();
+
+        //VirtualFile file = new VirtualFileImpl();
+        //fs.createChildFile(null, );
+
+
+
         // first check if there's a connection type associated to this module.
         // If not alert the user and get out
         Project project = PlatformDataKeys.PROJECT.getData(e.getDataContext());
